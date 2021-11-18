@@ -1,37 +1,37 @@
-import React, { useContext, useDebugValue, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { ProdutoContext } from '../../contexts/produto';
 import './checkout.css';
 
 
 export default function Checkout() {
 
-    const { cartItem, setCartItem } = useContext(ProdutoContext)
-
+    const { cartItem, setCartItem, setCartNumberItens, cartNumberItens } = useContext(ProdutoContext)
     const [priceItem, setPriceItem] = useState(0)
+    const [altera, setAltera] = useState(0)
 
     var valor = 0;
 
-    function RemoveItem({id}) {
-        var index = cartItem.indexOf(id)
-        if(index > -1){
-           let newArray = cartItem.splice(index,1);
-           setCartItem(newArray);
-        }
-        
+    function AddSameItem(item){
+       cartItem.push(item);
+       setCartNumberItens(cartNumberItens + 1)
+       setAltera(altera+1);
     }
 
-    useEffect(() => {
-        function SomaCart() {
-
-            for (var i = 0; i < cartItem.length; i++) {
-                valor += parseFloat(cartItem[i].price)
-            }
-            setPriceItem(valor);
+    function RemoveItem(id) {
+        var index = cartItem.indexOf(id)
+        if (index > -1) {
+            cartItem.splice(index, 1)
+            setCartNumberItens(cartNumberItens - 1)
+            setAltera(altera + 1)
         }
-        SomaCart()
-    }, [cartItem])
+    };
 
-
+    useEffect(() => {
+        for (var i = 0; i < cartItem.length; i++) {
+            valor += parseFloat(cartItem[i].price)
+        }
+        setPriceItem(valor);
+    }, [altera]);
 
     return (
         <div className='check-container'>
@@ -47,6 +47,7 @@ export default function Checkout() {
                                 <h2>{item.name}</h2>
                                 <h2>${item.price}</h2>
                                 <button onClick={() => RemoveItem(item)}>Remove</button>
+                                <button onClick={() => AddSameItem(item)}>Adicionar</button>
                             </div>
 
                         </>

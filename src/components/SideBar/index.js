@@ -12,7 +12,7 @@ export default function SideBar() {
     return (
         <div className='sidebar'>
             <div className='cart'>
-                <Link to='/checkout'><FaShoppingCart size={'3rem'} /></Link>
+                <Link to='/checkout'><FaShoppingCart size={'3rem'} color={'black'} /></Link>
                 {
                     cartNumberItens !== 0 ? <span>{cartNumberItens}</span> : <p></p>
                 }

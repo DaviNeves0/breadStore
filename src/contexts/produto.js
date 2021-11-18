@@ -3,17 +3,28 @@ import { useState, createContext } from "react";
 
 export const ProdutoContext = createContext();
 
-function ProdutoProvider({ children }){
+function ProdutoProvider({ children }) {
 
     const [departamento, setDepartamento] = useState('');
+
     const [produtos, setProdutos] = useState([]);
+
+    const [cartNumberItens, setCartNumberItens] = useState(0);
+
+    const [cartItem, setCartItem] = useState([]);
+
  
-    return(
+
+    return (
         <ProdutoContext.Provider value={{
             departamento,
             setDepartamento,
             produtos,
-            setProdutos
+            setProdutos,
+            cartNumberItens,
+            setCartNumberItens,
+            cartItem,
+            setCartItem
         }}>
             {children}
         </ProdutoContext.Provider>

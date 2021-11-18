@@ -13,10 +13,15 @@
     background-color: #FFD459;
     width: auto;
     height: 40px;
+    border-radius: 0 20px 20px 0 ;
 }
 
 .sidebar button:hover:not(:first-child){
     background-color: #F2F2F2;
+}
+
+.sidebar button:focus:not(:first-child){
+    background-color: #fff;
 }
 
 .cart {
@@ -24,4 +29,14 @@
     justify-content: center;
     align-items: center;
     margin: 40px;
+}
+
+.cart span{
+    margin-left: -10px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    text-align: center;
+    height: 20px;
+    width: 20px;
+    border-radius: 100%;
 }

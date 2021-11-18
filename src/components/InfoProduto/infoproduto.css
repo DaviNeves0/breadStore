@@ -28,8 +28,8 @@
     padding: 10px 45px 10px 45px;
     cursor: pointer;
     border-radius: 5px;
-    font-size: 40px;
-    transition: ease-in 0.2s;;
+    font-size: 20px;
+    transition: ease-in 0.2s;
 }
 .info-produto button:hover{
     transform: scale(1.1);

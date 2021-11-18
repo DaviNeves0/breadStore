@@ -1,17 +1,21 @@
 import React, { useContext } from "react";
+import {Link} from 'react-router-dom'
 import { ProdutoContext } from '../../contexts/produto'
-import {FaShoppingCart} from 'react-icons/fa'
+import { FaShoppingCart } from 'react-icons/fa'
 import './sidebar.css'
 
 
 export default function SideBar() {
 
-    const { setDepartamento } = useContext(ProdutoContext);
+    const { setDepartamento, cartNumberItens } = useContext(ProdutoContext);
 
     return (
         <div className='sidebar'>
             <div className='cart'>
-                <button><FaShoppingCart size={'3rem'}/></button>
+                <Link to='/checkout'><FaShoppingCart size={'3rem'} /></Link>
+                {
+                    cartNumberItens !== 0 ? <span>{cartNumberItens}</span> : <p></p>
+                }
             </div>
             <button onClick={(e) => { setDepartamento(e.target.value) }} value="">All</button>
             <button onClick={(e) => { setDepartamento(e.target.value) }} value="games">Games</button>

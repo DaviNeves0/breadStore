@@ -1,0 +1,25 @@
+.check-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.card-item{
+    display: flex;
+    flex-direction: row;
+    padding: 25px;
+    height: auto;
+    width: 500px;
+    background-color: #FFF;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+.card-item img{
+    width: 100px;
+    height: auto;
+}
+
+.card-item h2{
+    margin: 20px;
+}

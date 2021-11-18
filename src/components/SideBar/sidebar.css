@@ -1,0 +1,27 @@
+.sidebar{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 13%;
+    background-color: #FFD459;
+    height: 100%;
+    position: fixed;
+    border-radius: 0 20px 20px 0;
+}
+
+.sidebar button{
+    background-color: #FFD459;
+    width: auto;
+    height: 40px;
+}
+
+.sidebar button:hover:not(:first-child){
+    background-color: #F2F2F2;
+}
+
+.cart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px;
+}

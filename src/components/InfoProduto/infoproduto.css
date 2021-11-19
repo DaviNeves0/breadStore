@@ -15,6 +15,7 @@
  .info-produto img{
      width: 20vw;
      height: auto;
+     border-radius: 25px;
  }
 
  .info-produto h1, p{

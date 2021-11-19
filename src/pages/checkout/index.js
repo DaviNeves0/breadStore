@@ -1,4 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
+import { FaPlus, FaTrashAlt } from 'react-icons/fa';
+import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 import { ProdutoContext } from '../../contexts/produto';
 import './checkout.css';
 
@@ -11,10 +14,11 @@ export default function Checkout() {
 
     var valor = 0;
 
-    function AddSameItem(item){
-       cartItem.push(item);
-       setCartNumberItens(cartNumberItens + 1)
-       setAltera(altera+1);
+    function AddSameItem(item) {
+        cartItem.push(item);
+        setCartNumberItens(cartNumberItens + 1)
+        setAltera(altera + 1);
+        toast.success('Produto adicionado')
     }
 
     function RemoveItem(id) {
@@ -23,6 +27,7 @@ export default function Checkout() {
             cartItem.splice(index, 1)
             setCartNumberItens(cartNumberItens - 1)
             setAltera(altera + 1)
+            toast.warning('Produto removido')
         }
     };
 
@@ -35,7 +40,8 @@ export default function Checkout() {
 
     return (
         <div className='check-container'>
-            <h2>Página de checkout</h2>
+            <h2 className='text-cart'>store cart</h2>
+            <h2 style={{'color':'green', 'marginBottom':'25px'}}>$ {priceItem},00</h2>
             {
                 cartItem.map((item) => {
                     return (
@@ -46,16 +52,16 @@ export default function Checkout() {
                                 </div>
                                 <h2>{item.name}</h2>
                                 <h2>${item.price}</h2>
-                                <button onClick={() => RemoveItem(item)}>Remove</button>
-                                <button onClick={() => AddSameItem(item)}>Adicionar</button>
+                                <button onClick={() => AddSameItem(item)}><FaPlus size={'25px'} /></button>
+                                <button onClick={() => RemoveItem(item)}><FaTrashAlt size={'25px'} /></button>
                             </div>
 
                         </>
                     )
                 })
 
-            }
-            <h2>$ {priceItem}</h2>
+            } 
+            <Link to='/'>Continuar comprando</Link>           
         </div >
     )
 

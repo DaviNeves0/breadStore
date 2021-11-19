@@ -9,7 +9,7 @@
     flex-direction: row;
     padding: 25px;
     height: auto;
-    width: 500px;
+    width: 700px;
     background-color: #FFF;
     border-radius: 20px;
     margin-bottom: 20px;
@@ -18,8 +18,24 @@
 .card-item img{
     width: 100px;
     height: auto;
+    border-radius: 20px;
 }
 
 .card-item h2{
     margin: 20px;
+}
+
+.card-item button{
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    background-color: #FFF;
+    margin-left: 50px;
+}
+
+.text-cart{
+    text-transform: uppercase;
+    margin: 50px;
+    
+
 }
